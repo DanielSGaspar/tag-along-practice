@@ -1,0 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@beach.image_url%>);">
+  <div class="container">
+    <h1><%=@beach.name%></h1>
+    <p><%=@beach.description%></p>
+    <%= link_to 'Create new ride', new_location_beach_ride_path(@location, @beach), class:"btn btn-primary rounded"%>
+  </div>
+</div>
+
+<div class="container">
+  <%@beach.rides.each do |ride|%>
+    <div class="card-location" style="position: relative;">
+      <img src="https://www.ripcurl.eu/Content-Library/images/Team/Gabriel-Medina.jpg" style="border-radius: 50%; height: 200px; width: 200px; border: 1px solid black; margin: 5px;" />
+      <div class="card-location-infos">
+        <h2>Driver: Gabriel</h2>
+        <div class="d-flex justify-content-between">
+          <p class="me-5">When: <%=ride.date%></p>
+          <p class="me-5">Free seats: <%=ride.passenger_count%></p>
+          <p class="me-5">Board capacity: <%=ride.board_capacity%></p>
+          <button class="btn btn-primary rounded" style="position: absolute; bottom: 20px; right: 20px;">Book Now!</button>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>

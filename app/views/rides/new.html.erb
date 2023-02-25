@@ -1,0 +1,14 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@beach.image_url%>);">
+  <div class="container">
+    <h1><%=@beach.name%></h1>
+    <p><%=@beach.description%></p>
+  </div>
+</div>
+<div class="container mt-3">
+  <%= simple_form_for [@location, @beach, @ride] do |f|%>
+    <%= f.input :date%>
+    <%= f.input :passenger_count%>
+    <%= f.input :board_capacity%>
+    <%= f.submit%>
+  <%end%>
+</div>

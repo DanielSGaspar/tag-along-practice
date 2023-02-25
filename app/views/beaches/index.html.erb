@@ -1,0 +1,20 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@location.image_url%>);">
+  <div class="container">
+    <h1><%=@location.name%></h1>
+    <p><%=@location.description%></p>
+  </div>
+</div>
+
+<div class="container">
+  <%@beaches.each do |beach|%>
+    <%=link_to location_beach_path(@location,beach), class:"link-to" do%>
+      <div class="card-location">
+        <img src="<%= beach.image_url%>" />
+        <div class="card-location-infos">
+          <h2><%=beach.name%></h2>
+          <p><%=beach.description%></p>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+</div>
